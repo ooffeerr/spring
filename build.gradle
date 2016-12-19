@@ -25,6 +25,13 @@ jar {
 	version =  '0.1.0'
 }
 
+
+jar {
+	baseName = 'gs-accessing-data-mongodb'
+	version =  '0.1.0'
+}
+
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -35,6 +42,8 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
 
 	// tag::jetty[]
 	compile("org.springframework.boot:spring-boot-starter-web") {
