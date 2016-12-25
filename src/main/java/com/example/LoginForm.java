@@ -16,7 +16,7 @@ public class LoginForm {
     @Override
     public String toString() {
         return "LoginForm{" +
-                "username='" + username + '\'' +
+                "userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

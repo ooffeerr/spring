@@ -1,5 +1,6 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,9 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController extends WebMvcConfigurerAdapter {
+
+    @Autowired
+    CustomerRepository customerRepository;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -30,6 +34,11 @@ public class LoginController extends WebMvcConfigurerAdapter {
         if (bindingResult.hasErrors()) {
             return "form";
         }
+
+
+        User user = new User(loginForm.username, loginForm.password);
+        System.out.println("saving new user :" + user);
+        customerRepository.save(user);
 
         return "redirect:/results";
     }
