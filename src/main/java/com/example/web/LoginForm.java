@@ -1,4 +1,4 @@
-package com.example;
+package com.example.web;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

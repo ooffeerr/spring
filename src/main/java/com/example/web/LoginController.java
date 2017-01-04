@@ -1,5 +1,6 @@
-package com.example;
+package com.example.web;
 
+import com.example.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
