@@ -41,6 +41,8 @@ repositories {
 
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-starter-security")
+
 	compile('org.springframework.boot:spring-boot-starter')
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("org.hibernate:hibernate-validator")
@@ -48,10 +50,9 @@ dependencies {
 	compile("org.apache.tomcat.embed:tomcat-embed-el")
 
 
-
 	// tag::jetty[]
 	compile("org.springframework.boot:spring-boot-starter-web") {
-		exclude module: "spring-boot-starter-tomcat"
+//		exclude module: "spring-boot-starter-tomcat"
 	}
 
 	compile("org.springframework.boot:spring-boot-starter-jetty")

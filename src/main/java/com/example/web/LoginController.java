@@ -22,13 +22,13 @@ public class LoginController extends WebMvcConfigurerAdapter {
         registry.addViewController("/results").setViewName("results");
     }
 
-    @GetMapping("/login")
+    @GetMapping("/login123")
     public String showForm(LoginForm personForm) {
         System.out.print("Doing get!");
         return "form";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/login123")
     public String checkLoginInfo(@Valid LoginForm loginForm, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
