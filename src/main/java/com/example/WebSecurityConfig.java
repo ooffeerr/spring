@@ -1,6 +1,8 @@
 package com.example;
 //package hello;
 
+import com.example.auth.MongoUserDetailsAuth;
+import com.example.web.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    MongoUserDetailsAuth mongoUserDetailsAuth;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -29,5 +35,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
+        auth.inMemoryAuthentication()
+                .withUser("admin").password("admin").roles("ADMIN");
+        auth.userDetailsService(mongoUserDetailsAuth);
     }
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        super.configure(auth);
+//        auth.userDetailsService(new MongoUserDetailsAuth());
+//    }
 }
